@@ -6,21 +6,32 @@ import { Link } from 'react-scroll'
 import SearchMobile from './SearchMobile'
 import { useMediaQuery } from 'react-responsive'
 import { BiMenuAltRight, BiX } from 'react-icons/bi'
+import { useSearchContext } from '../context/search'
 
 export default function Header() {
+  const { setSearchActive } = useSearchContext()
+
   const [header, setHeader] = useState(false)
   const [nav, setNav] = useState(false)
 
   const desktopMode = useMediaQuery({
-    query: '(min-widthi: 1300px)'
+    query: '(min-width: 1300px)'
   })
 
   useEffect(() => {
     const handleScroll = () => {
+      // header
       if (window.scrollY > 40) {
         setHeader(true)
       } else {
         setHeader(false)
+      }
+
+      // search
+      if (window.scrollY > 800) {
+        setSearchActive(true)
+      } else {
+        setSearchActive(false)
       }
     }
 
@@ -70,6 +81,8 @@ export default function Header() {
             to='home'
             activeClass='active'
             smooth={desktopMode}
+            duration={300}
+            delay={300}
             spy={true}
           >
             Home
@@ -79,6 +92,8 @@ export default function Header() {
             to='cars'
             activeClass='active'
             smooth={desktopMode}
+            duration={300}
+            delay={300}
             spy={true}
           >
             Cars
@@ -88,6 +103,8 @@ export default function Header() {
             to='about'
             activeClass='active'
             smooth={desktopMode}
+            duration={300}
+            delay={300}
             spy={true}
           >
             About
@@ -103,12 +120,12 @@ export default function Header() {
           </Link>
           <Link
             className='cursor-pointer'
-            to='testimonials'
+            to='testimonial'
             activeClass='active'
             smooth={desktopMode}
             spy={true}
           >
-            Testimonials
+            Testimonial
           </Link>
           <Link
             className='cursor-pointer'
