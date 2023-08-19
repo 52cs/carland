@@ -7,7 +7,7 @@ import { fadeIn } from "/variants"
 export default function Cta() {
   return (
     <section
-      className="pt-24 xl:pt-48 flex items-end pb-0"
+      className="pt-24 xl:pt-48 flex items-end pb-0 overflow-hidden"
       id='contact'
     >
       <div className="container mx-auto">
