@@ -63,7 +63,7 @@ export default function Cta() {
           </div>
           {/* image */}
           <motion.div
-            variants={fadeIn('up', 0.8)}
+            variants={fadeIn('left', 0.8)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.2 }}
